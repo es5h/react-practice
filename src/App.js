@@ -1,8 +1,12 @@
 import './App.css';
 import Counter from './Counter';
+import Say from './Say';
 
-function App() {
-  return <Counter />;
-}
+const App = () => (
+  <>
+    <Counter />
+    <Say />
+  </>
+);
 
 export default App;
