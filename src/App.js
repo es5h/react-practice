@@ -1,11 +1,8 @@
 import './App.css';
-import './MyComponent';
-import MyComponent from './MyComponent';
+import Counter from './Counter';
 
 function App() {
-  const name = 'react';
-
-  return <MyComponent age="abc">children</MyComponent>;
+  return <Counter />;
 }
 
 export default App;
