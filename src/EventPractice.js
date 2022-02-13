@@ -1,54 +1,44 @@
-import { Component } from 'react';
+import { useState } from 'react';
 
-class EventPractice extends Component {
-  state = {
-    username: '',
-    message: '',
+const EventPractice = () => {
+  const [username, setUsername] = useState('');
+  const [message, setMessage] = useState('');
+  const onChangeUsername = (e) => setUsername(e.target.value);
+  const onChangeMessage = (e) => setMessage(e.target.value);
+
+  const onClick = () => {
+    alert(username + ': ' + message);
+    setUsername('');
+    setMessage('');
   };
 
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  handleClick = () => {
-    alert(this.state.username + ': ' + this.state.message);
-    this.setState({
-      username: '',
-      message: '',
-    });
-  };
-
-  handleKeypress = (e) => {
+  const onKeypress = (e) => {
     if (e.key === 'Enter') {
-      this.handleClick();
+      onClick();
     }
   };
 
-  render() {
-    return (
-      <div>
-        <h1>event practice</h1>
-        <input
-          type="text"
-          name="username"
-          placeholder="type anything"
-          value={this.state.username}
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="message"
-          placeholder="type anything"
-          value={this.state.message}
-          onChange={this.handleChange}
-          onKeyPress={this.handleKeypress}
-        />
-        <button onClick={this.handleClick}> 확인</button>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <h1>event practice</h1>
+      <input
+        type="text"
+        name="username"
+        placeholder="type anything"
+        value={username}
+        onChange={onChangeUsername}
+      />
+      <input
+        type="text"
+        name="message"
+        placeholder="type anything"
+        value={message}
+        onChange={onChangeMessage}
+        onKeyPress={onKeypress}
+      />
+      <button onClick={onClick}> 확인</button>
+    </div>
+  );
+};
 
 export default EventPractice;
