@@ -2,16 +2,28 @@ import { Component } from 'react';
 
 class EventPractice extends Component {
   state = {
+    username: '',
     message: '',
   };
 
   handleChange = (e) => {
-    this.setState({ message: e.target.value });
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   };
 
   handleClick = () => {
-    alert(this.state.message);
-    this.setState({ message: '' });
+    alert(this.state.username + ': ' + this.state.message);
+    this.setState({
+      username: '',
+      message: '',
+    });
+  };
+
+  handleKeypress = (e) => {
+    if (e.key === 'Enter') {
+      this.handleClick();
+    }
   };
 
   render() {
@@ -20,12 +32,20 @@ class EventPractice extends Component {
         <h1>event practice</h1>
         <input
           type="text"
+          name="username"
+          placeholder="type anything"
+          value={this.state.username}
+          onChange={this.handleChange}
+        />
+        <input
+          type="text"
           name="message"
           placeholder="type anything"
           value={this.state.message}
           onChange={this.handleChange}
+          onKeyPress={this.handleKeypress}
         />
-        <button onClick={this.handleClick}> 확인 </button>
+        <button onClick={this.handleClick}> 확인</button>
       </div>
     );
   }
