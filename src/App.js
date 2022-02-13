@@ -1,11 +1,9 @@
 import './App.css';
-import Counter from './Counter';
-import Say from './Say';
+import EventPractice from './EventPractice';
 
 const App = () => (
   <>
-    <Counter />
-    <Say />
+    <EventPractice />
   </>
 );
 
