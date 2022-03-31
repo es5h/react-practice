@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const IterationSample = () => {
+  // 주석을 다는 개발을 해봤다
   const [names, setNames] = useState([
     { id: 1, text: 'snowman' },
     { id: 2, text: 'ice' },
