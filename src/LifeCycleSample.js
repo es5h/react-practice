@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class LifeCycleSample extends Component {
+  // 주석을 다는 개발을 해봤다
   state = {
     number: 0,
     color: null,
